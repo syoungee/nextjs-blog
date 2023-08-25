@@ -16,11 +16,11 @@ const siteConfig: SiteConfig = {
 	description: 'A minimal and lovely travel blog which shares experiences and citiest around the world!',
 	currentlyAt: 'Seoul, Korea',
 	socialLinks: {
-		twitter: 'https://twitter.com/syoungee',
-		youtube: 'https://youtube.com/@syoungee',
+		twitter: 'https://github.com/syoungee',
+		youtube: 'https://github.com/syoungee',
 		github: 'https://github.com/syoungee',
-		linkedin: 'https://linkedin.com/in/syoungee',
-		instagram: 'https://instagram.com/syoungee',
+		linkedin: 'https://www.linkedin.com/in/sunyoung-hwang-422004184/',
+		instagram: 'https://github.com/syoungee',
 	},
 };
 
