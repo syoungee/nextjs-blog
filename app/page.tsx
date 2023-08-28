@@ -8,7 +8,9 @@ export default function Home() {
 		<PaddingContainer>
 			<main className="h-auto space-y-10">
 				<PostCard post={DUMMY_POSTS[0]} />
-				<PostList layout="vertical" posts={DUMMY_POSTS.filter((post, index) => index > 0 && index < 3)} />
+				<PostList layout="vertical" posts={DUMMY_POSTS.filter((_post, index) => index > 0 && index < 3)} />
+				<PostCard reverse post={DUMMY_POSTS[3]} />
+				<PostList posts={DUMMY_POSTS.filter((_post, index) => index > 3 && index < 6)} />
 			</main>
 		</PaddingContainer>
 	);
