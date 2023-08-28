@@ -20,12 +20,12 @@ const CTACard = () => {
 					Join me!
 				</p>
 				{/* Form */}
-				<form className="flex items-center gap-2 mt-6">
+				<form className="flex items-center w-full gap-2 mt-6">
 					<input
 						placeholder="Write your email."
-						className="bg-white px-4 py-3 text-base rounded-md outline-none placeholder:text-sm focus:ring-2 ring-neutral-600"
+						className="w-full bg-white px-3 py-2 text-base rounded-md outline-none md:w-auto placeholder:text-sm focus:ring-2 ring-neutral-600"
 					></input>
-					<button className="px-3 py-2 rounded-md bg-neutral-900 text-neutral-200">Sign Up</button>
+					<button className="px-3 py-2 rounded-md whitespace-nowrap bg-neutral-900 text-neutral-200">Sign Up</button>
 				</form>
 			</div>
 		</div>
