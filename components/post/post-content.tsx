@@ -24,7 +24,7 @@ const PostContent = ({ post }: PostContentProps) => {
 			<p className="text-base @lg:text-lg leading-snug text-neutral-600">{post.description}</p>
 			{/* Read More */}
 			{
-				<div className="flex items-center gap-2 pt-3">
+				<div className="flex items-center flex-wrap gap-2 pt-3">
 					Read More
 					<ArrowRight size="14" />
 				</div>
