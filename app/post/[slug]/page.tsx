@@ -1,5 +1,7 @@
 import { DUMMY_POSTS } from '@/DUMMY_DATA';
 import { notFound } from 'next/navigation';
+import PaddingContainer from '@/components/layout/padding-container';
+import PostHero from '@/components/post/post-hero';
 
 export const generateStaticParams = async () => {
 	return DUMMY_POSTS.map((post) => {
@@ -16,7 +18,11 @@ const Page = ({ params }: { params: { slug: string } }) => {
 		notFound();
 	}
 
-	return <div>{post?.title}</div>;
+	return (
+		<PaddingContainer>
+			<PostHero post={post}></PostHero>
+		</PaddingContainer>
+	);
 };
 
 export default Page;
