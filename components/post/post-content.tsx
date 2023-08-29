@@ -9,7 +9,7 @@ const PostContent = ({ post }: PostContentProps) => {
 	return (
 		<div className="space-y-2">
 			{/* Tags */}
-			<div className={`flex items-center flex-wrap gap-2  text-neutral-400 text-sm }`}>
+			<div className={`flex items-center flex-wrap gap-2 text-xs  text-neutral-400 @md:text-sm }`}>
 				<div className={`font-medium ${post.category.title === 'Cities' ? 'text-emerald-600' : 'text-indigo-600'}`}>{post.category.title}</div>
 				<div className="w-2 h-2 rounded-full bg-neutral-200" />
 				<div>{`${post.author.first_name} ${post.author.last_name}`}</div>
