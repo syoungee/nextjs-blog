@@ -23,13 +23,14 @@ const Page = ({ params }: { params: { slug: string } }) => {
 
 	return (
 		<PaddingContainer>
-			<div>
+			<div className="space-y-10">
 				{/* Post Hero */}
 				<PostHero post={post}></PostHero>
 				{/* Post Body and Social Share */}
 				<div className="flex flex-col gap-10 md:flex-row">
 					<div className="relative">
-						<div className="sticky flex md:flex-col gap-5 top-20">
+						<div className="sticky flex items-center md:flex-col gap-5 top-20">
+							<div className="font-medium md:hidden">Share this content:</div>
 							<SocialLink
 								platform="facebook"
 								isShareURL
