@@ -7,7 +7,7 @@ import { directus } from '@/lib/directus';
 import { readItems } from '@directus/sdk';
 import { notFound } from 'next/navigation';
 
-export default function Home() {
+export default async function Home() {
 	const getAllPosts = async () => {
 		try {
 			const posts = await directus.request(
@@ -15,14 +15,16 @@ export default function Home() {
 					fields: ['*'],
 				})
 			);
-			// console.log(posts);
+			posts.map((post) => {
+				post.image = process.env.NEXT_PUBLIC_ASSETS_URL + post.image;
+			});
 			return posts;
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
-	const posts = getAllPosts();
+	const posts = await getAllPosts();
 	if (!posts) {
 		console.log('no posts found');
 		notFound();
@@ -31,12 +33,12 @@ export default function Home() {
 	return (
 		<PaddingContainer>
 			<main className="h-auto space-y-10">
-				<PostCard post={DUMMY_POSTS[0]} />
-				<PostList layout="vertical" posts={DUMMY_POSTS.filter((_post, index) => index > 0 && index < 3)} />
+				<PostCard post={posts[0]} />
+				<PostList layout="vertical" posts={posts.filter((_post, index) => index > 0 && index < 3)} />
 				<CTACard />
 
-				<PostCard reverse post={DUMMY_POSTS[3]} />
-				<PostList posts={DUMMY_POSTS.filter((_post, index) => index > 3 && index < 6)} />
+				<PostCard reverse post={posts[3]} />
+				<PostList posts={posts.filter((_post, index) => index > 3 && index < 6)} />
 			</main>
 		</PaddingContainer>
 	);
