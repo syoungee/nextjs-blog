@@ -6,9 +6,35 @@ import { readItems } from '@directus/sdk';
 import { notFound } from 'next/navigation';
 
 export const generateStaticParams = async () => {
-	return DUMMY_CATEGORIES.map((category) => {
-		return { category: category.slug };
-	});
+	// return DUMMY_CATEGORIES.map((category) => {
+	// 	return { category: category.slug };
+	// });
+
+	try {
+		const categories = await directus.request(
+			readItems('category', {
+				fields: ['slug'],
+			})
+		);
+
+		// console.log('categories?', categories);
+		// [ { slug: 'experiences' }, { slug: 'cities' }, { slug: 'cities2' } ]
+
+		const params = categories?.map((category) => {
+			return { category: category.slug as string };
+		});
+
+		// console.log('params?', params);
+		// [
+		// 	{ category: 'experiences' },
+		// 	{ category: 'cities' },
+		// 	{ category: 'cities2' }
+		//   ]
+		return params || [];
+	} catch (err) {
+		console.log(err);
+		throw new Error('Error fetching categories');
+	}
 };
 
 const Page = async ({
@@ -46,7 +72,7 @@ const Page = async ({
 		posts = DUMMY_POSTS.filter((post) => post.category.title.toLocaleLowerCase() === params.category);
 	}
 
-	console.log('posts title?', posts, params.category);
+	// console.log('posts title?', posts, params.category);
 	return (
 		<PaddingContainer>
 			<div className="mb-10">
