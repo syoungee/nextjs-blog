@@ -36,7 +36,6 @@ export default async function Home() {
 				<PostCard post={posts[0]} />
 				<PostList layout="vertical" posts={posts.filter((_post, index) => index > 0 && index < 3)} />
 				<CTACard />
-
 				<PostCard reverse post={posts[3]} />
 				<PostList posts={posts.filter((_post, index) => index > 3 && index < 6)} />
 			</main>

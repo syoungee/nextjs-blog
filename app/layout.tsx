@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 		<html lang="en">
 			<body className={inter.className}>
 				<Navigation />
-				<div className="pt-10">{children}</div>
+				<div className="pt-10 min-h-[calc(100vh-300px)]">{children}</div>
 				<Footer />
 			</body>
 		</html>

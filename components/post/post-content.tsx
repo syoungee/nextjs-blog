@@ -13,7 +13,7 @@ const PostContent = ({ post, isPostPage = false }: PostContentProps) => {
 			<div className={`flex items-center flex-wrap gap-2 text-xs @md:text-sm text-neutral-400  ${isPostPage ? 'text-sm' : 'text-xs @md:text-sm'}`}>
 				<div className={`font-medium ${post.category.title === 'Cities' ? 'text-emerald-600' : 'text-indigo-600'}`}>{post.category.title}</div>
 				<div className="w-2 h-2 rounded-full bg-neutral-200" />
-				<div>{`${post.author.first_name} ${post.author.last_name}`}</div>
+				<div>{`${post.author?.first_name ? post.author?.first_name : '-'} ${post.author?.last_name ? post.author?.last_name : ''}`}</div>
 				<div className="w-2 h-2 rounded-full bg-neutral-200" />
 				<div>{getReadingTime(post.body)}</div>
 				<div className="w-2 h-2 rounded-full bg-neutral-200" />

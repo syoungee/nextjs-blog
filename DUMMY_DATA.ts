@@ -83,8 +83,14 @@ export const DUMMY_CATEGORIES: Category[] = [
 	{
 		id: '1',
 		title: 'Cities',
-		slug: 'cities',
-		description: "Travel every city that I've been with me! I'll be sharing hidden gems in every city.",
+		slug: 'cities1',
+		description: "Travel1 every city that I've been with me! I'll be sharing hidden gems in every city.",
+	},
+	{
+		id: '1',
+		title: 'Cities',
+		slug: 'cities2',
+		description: "Travel2 every city that I've been with me! I'll be sharing hidden gems in every city.",
 	},
 	{
 		id: '2',
