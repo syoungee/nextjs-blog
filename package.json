@@ -17,6 +17,7 @@
     "autoprefixer": "10.4.15",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
+    "html-react-parser": "^4.2.2",
     "lucide-react": "^0.269.0",
     "luxon": "^3.4.2",
     "next": "13.4.19",
