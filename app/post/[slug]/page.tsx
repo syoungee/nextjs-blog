@@ -87,6 +87,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 					<PostBody body={posts[0].body}></PostBody>
 				</div>
 				{/* CTA Card */}
+				{/* @ts-expect-error Async Server Component */}
 				<CTACard />
 			</div>
 		</PaddingContainer>
