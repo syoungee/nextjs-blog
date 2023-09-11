@@ -16,7 +16,7 @@ const PostBody = ({ body }: { body: string }) => {
 							className="rounded-md w-full object-cover object-center my-3 h-auto max-h-[300px] md:max-h-[500px]"
 							src={src}
 							alt={alt}
-							width={1200}
+							width={1280}
 							height={620}
 						></Image>
 					);
