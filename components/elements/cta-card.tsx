@@ -1,6 +1,21 @@
 import Image from 'next/image';
+import { directus } from '@/lib/directus';
+import { createItem } from '@directus/sdk';
 
-const CTACard = () => {
+const CTACard = async () => {
+	const formAction = async (formData: FormData) => {
+		'use server';
+
+		try {
+			const email = formData.get('email');
+			console.log(email);
+			const data = await directus.request(createItem('subscribers', { email }));
+			console.log(data);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	return (
 		<div className="relative px-6 py-10 overflow-hidden rounded-md bg-slate-100">
 			{/* Image */}
@@ -20,8 +35,10 @@ const CTACard = () => {
 					Join me!
 				</p>
 				{/* Form */}
-				<form className="flex items-center w-full gap-2 mt-6">
+				<form className="flex items-center w-full gap-2 mt-6" action={formAction}>
 					<input
+						type="email"
+						name="email"
 						placeholder="Write your email."
 						className="w-full bg-white px-3 py-2 text-base rounded-md outline-none md:w-auto placeholder:text-sm focus:ring-2 ring-neutral-600"
 					></input>
