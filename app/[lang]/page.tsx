@@ -2,12 +2,13 @@ import PaddingContainer from '@/components/layout/padding-container';
 import PostCard from '@/components/post/post-card';
 import PostList from '@/components/post/post-list';
 import CTACard from '@/components/elements/cta-card';
-import { DUMMY_POSTS } from '@/DUMMY_DATA';
 import { directus } from '@/lib/directus';
 import { readItems } from '@directus/sdk';
 import { notFound } from 'next/navigation';
 
-export default async function Home() {
+export default async function Home({ params }): {
+	params: { lang: string };
+} {
 	const getAllPosts = async () => {
 		try {
 			const posts = await directus.request(

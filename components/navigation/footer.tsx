@@ -5,11 +5,14 @@
 // export default Footer;
 
 import siteConfig from '@/config/site';
-import PaddingContainer from '../layout/padding-container';
+import { getDictionary } from '@/lib/getDictionary';
 import Link from 'next/link';
 import SocialLink from '../elements/social-link';
+import PaddingContainer from '../layout/padding-container';
 
-const Footer = () => {
+const Footer = async ({ locale }: { locale: string }) => {
+	const dictionary = await getDictionary(locale);
+
 	return (
 		<div className="py-6 mt-10 border-t">
 			<PaddingContainer>
@@ -38,9 +41,13 @@ const Footer = () => {
 				</div>
 				{/* Bottom Section */}
 				<div className="flex flex-wrap items-center justify-between gap-4 py-3 border-t mt-16">
-					<div className="text-sm text-neutral-400">All rights are reserved | Copyright {new Date().getFullYear()}</div>
+					<div className="text-sm text-neutral-400">
+						{dictionary.footer.rightsText}
+						{/* All rights are reserved | Copyright {new Date().getFullYear()} */}
+					</div>
 					<div className="text-sm">
-						Made with love by{' '}
+						{dictionary.footer.creatorText}
+						{/* Made with love by{' '} */}
 						<Link className="underline underline-offset-4" href="https://github.com/syoungee">
 							@syoungee
 						</Link>
