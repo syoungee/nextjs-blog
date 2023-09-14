@@ -5,12 +5,8 @@ export const getReadingTime = (text: string, locale: string) => {
 	const minute = readingTime(text).minutes;
 	// Floor to 1 decimal place
 	const minutesRounded = Math.floor(minute);
-	if (locale === 'de') {
-		if (minutesRounded === 1) {
-			return `${minutesRounded} Minute`;
-		} else {
-			return `${minutesRounded} Minuten`;
-		}
+	if (locale === 'ko') {
+		return `${minutesRounded} 분`;
 	} else {
 		if (minutesRounded === 1) {
 			return `${minutesRounded} minute`;
