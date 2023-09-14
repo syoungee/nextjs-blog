@@ -6,9 +6,7 @@ import { directus } from '@/lib/directus';
 import { readItems } from '@directus/sdk';
 import { notFound } from 'next/navigation';
 
-export default async function Home({ params }): {
-	params: { lang: string };
-} {
+export default async function Home({ params }: { params: { lang: string } }) {
 	const getAllPosts = async () => {
 		try {
 			const posts = await directus.request(
@@ -31,14 +29,16 @@ export default async function Home({ params }): {
 		notFound();
 	}
 
+	const locale = params.lang;
+
 	return (
 		<PaddingContainer>
 			<main className="h-auto space-y-10">
-				<PostCard post={posts[0]} />
-				<PostList layout="vertical" posts={posts.filter((_post, index) => index > 0 && index < 3)} />
+				<PostCard locale={locale} post={posts[0]} />
+				<PostList locale={locale} layout="vertical" posts={posts.filter((_post, index) => index > 0 && index < 3)} />
 				{/* @ts-expect-error Async Server Component */}
-				<CTACard />
-				<PostCard reverse post={posts[3]} />
+				<CTACard locale={locale} />
+				<PostCard locale={locale} reverse post={posts[3]} />
 				<PostList posts={posts.filter((_post, index) => index > 3 && index < 6)} />
 			</main>
 		</PaddingContainer>
