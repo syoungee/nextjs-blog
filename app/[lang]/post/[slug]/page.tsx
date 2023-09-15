@@ -9,12 +9,6 @@ import { directus } from '@/lib/directus';
 import { readItems } from '@directus/sdk';
 
 export const generateStaticParams = async () => {
-	// return DUMMY_POSTS.map((post) => {
-	// 	return {
-	// 		slug: post.slug,
-	// 	};
-	// });
-
 	try {
 		const posts = await directus.request(
 			readItems('post', {
@@ -24,7 +18,6 @@ export const generateStaticParams = async () => {
 		const params = posts?.map((post) => {
 			return { slug: post.slug as string };
 		});
-		// console.log('params?', params);
 		return params || [];
 	} catch (err) {
 		console.log(err);
@@ -32,9 +25,7 @@ export const generateStaticParams = async () => {
 	}
 };
 
-const Page = async ({ params }: { params: { slug: string } }) => {
-	// const post = DUMMY_POSTS.find((post) => post.slug === params.slug);
-
+const Page = async ({ params }: { params: { slug: string; lang: string } }) => {
 	const getPostData = async () => {
 		const post = await directus.request(
 			readItems('post', {
@@ -45,13 +36,9 @@ const Page = async ({ params }: { params: { slug: string } }) => {
 	};
 
 	const posts = await getPostData();
-	// console.log(posts[0].slug);
-	// console.log('page params?', params);
 	const post = posts.filter((post) => {
-		// console.log('post index?', post.slug, params.slug);
 		return post.slug == params.slug;
 	});
-	// console.log(post[0]);
 
 	if (!posts) {
 		notFound();

@@ -11,7 +11,8 @@ interface PostProps {
 	locale: string;
 }
 
-const PostCard = ({ post, layout = 'horizontal', reverse = false, locale }: PostProps) => {
+const PostCard = async ({ post, layout = 'horizontal', reverse = false, locale }: PostProps) => {
+	const dictionary = await getDictionary(locale);
 	return (
 		<Link
 			className={`@container ${layout === 'horizontal' ? 'grid items-center grid-cols-1 md:grid-cols-2 gap-10' : 'space-y-10'}`}
@@ -21,10 +22,11 @@ const PostCard = ({ post, layout = 'horizontal', reverse = false, locale }: Post
 			<Image
 				className={`rounded-md w-full object-cover object-center h-full max-h-[300px] ${reverse ? 'md:order-last' : ''}`}
 				alt={post.title}
-				src={post.image+`?key=optimised`}
+				src={post.image + `?key=optimised`}
 				width={600}
 				height={300}
 			/>
+			{/* @ts-expect-error Async Server Component */}
 			<PostContent locale={locale} post={post} />
 		</Link>
 	);

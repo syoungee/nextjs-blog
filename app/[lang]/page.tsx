@@ -34,11 +34,15 @@ export default async function Home({ params }: { params: { lang: string } }) {
 	return (
 		<PaddingContainer>
 			<main className="h-auto space-y-10">
+				{/* @ts-expect-error Async Server Component */}
 				<PostCard locale={locale} post={posts[0]} />
+				{/* @ts-expect-error Async Server Component */}
 				<PostList locale={locale} layout="vertical" posts={posts.filter((_post, index) => index > 0 && index < 3)} />
 				{/* @ts-expect-error Async Server Component */}
 				<CTACard locale={locale} />
+				{/* @ts-expect-error Async Server Component */}
 				<PostCard locale={locale} reverse post={posts[3]} />
+				{/* @ts-expect-error Async Server Component */}
 				<PostList posts={posts.filter((_post, index) => index > 3 && index < 6)} />
 			</main>
 		</PaddingContainer>

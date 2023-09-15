@@ -13,13 +13,13 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({ children, params: { lang } }: { children: React.ReactNode; params: { lang: string } }) {
-	const dicitionary = await getDictionary(lang);
-
 	return (
 		<html lang={lang}>
 			<body className={inter.className}>
-				<Navigation />
+				{/* @ts-expect-error Async Server Component */}
+				<Navigation locale={lang} />
 				<div className="pt-10 min-h-[calc(100vh-300px)]">{children}</div>
+				{/* @ts-expect-error Async Server Component */}
 				<Footer locale={lang} />
 			</body>
 		</html>

@@ -16,10 +16,10 @@ const Navigation = async ({ locale }: { locale: string }) => {
 					<nav>
 						<ul className="flex items-center gap-4 text-neutral-600">
 							<li>
-								<Link href="/cities">{dictionary.navigation.links.cities}</Link>
+								<Link href={`${locale}/cities`}>{dictionary.navigation.links.cities}</Link>
 							</li>
 							<li>
-								<Link href="/experiences">{dictionary.navigation.links.experience}</Link>
+								<Link href={`/experiences`}>{dictionary.navigation.links.experience}</Link>
 							</li>
 						</ul>
 					</nav>
