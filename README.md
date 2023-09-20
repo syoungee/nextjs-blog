@@ -1,8 +1,9 @@
+```
+NEXT_PUBLIC_SITE_URL="http://localhost:3000"
+NEXT_PUBLIC_API_URL="https://directus-production-a4cd.up.railway.app/"
+NEXT_PUBLIC_ASSETS_URL="https://directus-production-a4cd.up.railway.app/assets/"
+```
 
-
-
-https://github.com/syoungee/nextjs-blog/assets/22606199/ec7f66e8-398
-
-https://github.com/syoungee/nextjs-blog/assets/22606199/e5254ac7-192c-471b-b882-4f161d9d8ae0
+✔️ .env file 링크 첨부
 
 
